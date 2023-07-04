@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/bmayes/.ssh'
+let g:netrw_dirhist_0='/Users/bmayes'
+let g:netrw_dirhist_9='/Library/Java/JavaVirtualMachines/zulu-17.jdk'
+let g:netrw_dirhist_8='/Users/bmayes/.oh-my-zsh/themes'
+let g:netrw_dirhist_7='/Users/bmayes/.oh-my-zsh'
+let g:netrw_dirhist_6='/Users/bmayes/.oh-my-zsh/custom'
+let g:netrw_dirhist_5='/Users/bmayes/.oh-my-zsh/custom/themes'
+let g:netrw_dirhist_4='/Users/bmayes/.oh-my-zsh/themes'
+let g:netrw_dirhist_3='/Users/bmayes/.oh-my-zsh'
+let g:netrw_dirhist_2='/Users/bmayes/.oh-my-zsh/custom'
