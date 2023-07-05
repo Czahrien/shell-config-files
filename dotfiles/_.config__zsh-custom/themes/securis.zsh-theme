@@ -110,9 +110,8 @@ get_space () {
 }
 
 _1LEFT="$_USERNAME $_PATH"
-_1RIGHT="$(battery_level_gauge)[%*]"
-
 bureau_precmd () {
+  _1RIGHT="$(battery_level_gauge)[%*]"
   _1SPACES=`get_space $_1LEFT $_1RIGHT`
   print
   print -rP "$_1LEFT$_1SPACES$_1RIGHT"

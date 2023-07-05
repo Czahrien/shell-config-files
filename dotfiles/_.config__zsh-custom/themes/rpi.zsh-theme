@@ -122,10 +122,10 @@ get_right1_rpi() {
   printf "[%s%s %s][%s]" "${THROTTLED_TEXT}" ${VOLTS} ${TEMPERATURE} $(date +%H:%M:%S) 
 }
 
-_1LEFT="$_USERNAME $_PATH"
-_1RIGHT="$(get_right1_rpi)"
 
+_1LEFT="$_USERNAME $_PATH"
 bureau_precmd () {
+  _1RIGHT="$(get_right1_rpi)"
   _1SPACES=`get_space $_1LEFT $_1RIGHT`
   print
   print -rP "$_1LEFT$_1SPACES$_1RIGHT"

@@ -1,6 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 if [[ ! -e $ZSH/oh-my-zsh.sh ]]; then
@@ -11,7 +8,7 @@ fi
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="securis"
+ZSH_THEME="rpi"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -29,7 +26,7 @@ ZSH_THEME="securis"
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
@@ -50,7 +47,7 @@ ZSH_THEME="securis"
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -66,7 +63,7 @@ ZSH_THEME="securis"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=${HOME}/.config/zsh-custom
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -75,48 +72,30 @@ ZSH_THEME="securis"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git battery)
 
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export EDITOR='nvim'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
+for dotf in ${HOME}/.zshrc-*.d/*(N) ${HOME}/.zshrc-*(N); do
+  [[ -f "${dotf}" ]] && source "${dotf}"
+done
+
+source $ZSH/oh-my-zsh.sh
+
+#TODO move
 #alias wake-desktop="ssh bmayes@10.13.37.240 'wakeonlan d8:5e:d3:80:c5:a7'"
 #alias socks-proxy "ssh -D 1337 -C -N 10.13.37.240"
-
-
-for dotf in ./.zshrc-*; do
-  . ${dotf} 
-done
+#end TODO
 
 # TODO move to mac specific file
 if [[ -x /usr/libexec/java_home ]]; then
 	export JAVA_HOME=$(/usr/libexec/java_home -v 17.0.5)
 fi
 
-if which rbenv; then
+if which rbenv 1>/dev/null 2>&1; then
 	eval "$(rbenv init - zsh)"
 fi
 #end TODO move to mac specific file
