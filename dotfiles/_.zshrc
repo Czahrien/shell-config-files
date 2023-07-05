@@ -3,6 +3,9 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+if [[ ! -e $ZSH/oh-my-zsh.sh ]]; then
+	ZSH= sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -103,8 +106,20 @@ source $ZSH/oh-my-zsh.sh
 #alias wake-desktop="ssh bmayes@10.13.37.240 'wakeonlan d8:5e:d3:80:c5:a7'"
 #alias socks-proxy "ssh -D 1337 -C -N 10.13.37.240"
 
-export JAVA_HOME=$(/usr/libexec/java_home -v 17.0.5)
-eval "$(rbenv init - zsh)"
+
+for dotf in ./.zshrc-*; do
+  . ${dotf} 
+done
+
+# TODO move to mac specific file
+if [[ -x /usr/libexec/java_home ]]; then
+	export JAVA_HOME=$(/usr/libexec/java_home -v 17.0.5)
+fi
+
+if which rbenv; then
+	eval "$(rbenv init - zsh)"
+fi
+#end TODO move to mac specific file
 
 alias vim=nvim
 alias vi=nvim

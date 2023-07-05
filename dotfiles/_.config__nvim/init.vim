@@ -161,5 +161,4 @@ require("nvim-tree").setup({
   },
 })
 EOF
-
 set tagfunc=CocTagFunc

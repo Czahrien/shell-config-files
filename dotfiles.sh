@@ -29,10 +29,9 @@ if [[ -o interactive ]]; then
         FILE_DEST=${FILE_DEST//__/\/}
         if [[ ! -e ${FILE_DEST} ]]; then
             DIRNAME=$(dirname $FILE_DEST)
-            echo $DIRNAME
             $DRY_RUN mkdir -p $DIRNAME
             echo "[${BASENAME}]  Creating symbolic link ${FILE_DEST} --> ${file}"
-            $DRY_RUN ln -s $file ${FILE_DEST}
+            $DRY_RUN ln -s ${BASEDIR}/dotfiles/$file ${FILE_DEST}
         fi
     done
     popd

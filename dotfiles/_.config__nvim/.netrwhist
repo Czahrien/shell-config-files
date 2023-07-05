@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/bmayes/shell-config-files/dotfiles'
+let g:netrw_dirhist_2='/home/bmayes/shell-config-files/dotfiles/_.config__nvim/autoload'
+let g:netrw_dirhist_1='/home/bmayes/shell-config-files/dotfiles'
