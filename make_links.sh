@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+set -x
 BASENAME=$(basename ${0})
 BASEDIR=$(readlink -f $(dirname ${0}))
 DEST_PREFIX=${DEST_PREFIX-~}
@@ -29,13 +30,13 @@ make_links() {
 
   for x in $PKG_DIR $PLATFORM_DIR $HOST_DIR; do
     pushd $x
-    stow --verbose --restow --target="${HOME}" * 2>&1
+    stow --dotfiles --verbose --restow --target="${HOME}" * 2>&1
     popd
   done
 }
 
 main() {
-  check_git
+  #check_git
   make_links
 }
 
