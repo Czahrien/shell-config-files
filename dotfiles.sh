@@ -50,8 +50,8 @@ create_platform_link() {
   PLATFORM_DIR=${BASEDIR}/dotfiles/platforms/${PLATFORM_PREFIX}
   if [[ ! -e ${PLATFORM_LINK} ]]; then
     echo "Linking ${PLATFORM_LINK} -> ${PLATFORM_DIR}"
-    mkdir -p ${PLATFORM_DIR}
-    ln -s ${PLATFORM_DIR} -T ${PLATFORM_LINK}
+    $DRY_RUN mkdir -p ${PLATFORM_DIR}
+    $DRY_RUN ln -s ${PLATFORM_DIR} -T ${PLATFORM_LINK}
   fi
 }
 
@@ -60,8 +60,8 @@ create_host_link() {
   HOST_DIR=${BASEDIR}/dotfiles/hosts/${HOST_PREFIX}
   if [[ ! -e ${HOST_LINK} ]]; then
     echo "Linking ${HOST_LINK} -> ${HOST_DIR}"
-    mkdir -p ${HOST_DIR}
-    ln -s ${HOST_DIR} -T ${HOST_LINK}
+    $DRY_RUN mkdir -p ${HOST_DIR}
+    $DRY_RUN ln -s ${HOST_DIR} -T ${HOST_LINK}
   fi
 
 }
