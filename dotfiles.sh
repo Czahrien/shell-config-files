@@ -51,7 +51,7 @@ create_platform_link() {
   if [[ ! -e ${PLATFORM_LINK} ]]; then
     echo "Linking ${PLATFORM_LINK} -> ${PLATFORM_DIR}"
     $DRY_RUN mkdir -p ${PLATFORM_DIR}
-    $DRY_RUN ln -s ${PLATFORM_DIR} -T ${PLATFORM_LINK}
+    $DRY_RUN ln -s ${PLATFORM_DIR} ${PLATFORM_LINK}
   fi
 }
 
@@ -61,7 +61,7 @@ create_host_link() {
   if [[ ! -e ${HOST_LINK} ]]; then
     echo "Linking ${HOST_LINK} -> ${HOST_DIR}"
     $DRY_RUN mkdir -p ${HOST_DIR}
-    $DRY_RUN ln -s ${HOST_DIR} -T ${HOST_LINK}
+    $DRY_RUN ln -s ${HOST_DIR} ${HOST_LINK}
   fi
 
 }
