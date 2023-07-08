@@ -1,0 +1,7 @@
+[user]
+	name = Benjamin Mayes
+	email = czahrien@gmail.com
+[credential]
+	helper = cache --timeout=99999
+[push]
+	default = upstream
