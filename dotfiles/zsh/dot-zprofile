@@ -3,3 +3,8 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
 	eval $(/opt/homebrew/bin/brew shellenv)
 fi 
 # end TODO
+
+# show neofetch on interactive login shells
+if which neofetch && [[ $- == *i* && $- == *l* ]]; then
+  neofetch
+fi
