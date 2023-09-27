@@ -32,8 +32,13 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 exec --no-startup-id blueberry-tray
-
 exec --no-startup-id ~/.config/i3/scripts/surfacebook-orientation.sh
+
+exec --no-startup-id xrandr --rate 175
+exec --no-startup-id feh --bg-scale ~/Pictures/*.jpeg
+
+
+# TODO script for lockscreen
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
